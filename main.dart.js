@@ -93511,14 +93511,18 @@ break
 case 5:return A.w(null,r)
 case 1:return A.v(p.at(-1),r)}})
 return A.x($async$yr,r)},
-Fv(){var s=0,r=A.y(t.H),q=this,p,o,n,m,l
+Fv(){var s=0,r=A.y(t.H),q=this,p,o,n,m,l,k,j
 var $async$Fv=A.t(function(a,b){if(a===1)return A.v(b,r)
 while(true)switch(s){case 0:q.N(new A.awo(q))
-try{n=A.eW().h(0,"userId")
-p="https://buy.stripe.com/eVqaEXgSw3ra8b68e7fMA02?client_reference_id="+(n==null?"unknown_user":n)
-m=window.open(p,"_blank")
-A.aY3(m)
-q.N(new A.awp(q))}catch(k){o=A.a2(k)
+try{n=A.eW()
+m=n.h(0,"userId")
+if(m==null)m="unknown_user"
+l=n.h(0,"email")
+if(l==null)l=""
+p="https://buy.stripe.com/eVqaEXgSw3ra8b68e7fMA02?client_reference_id="+m+"&prefilled_email="+l
+k=window.open(p,"_blank")
+A.aY3(k)
+q.N(new A.awp(q))}catch(i){o=A.a2(i)
 q.N(new A.awq(q,o))}return A.w(null,r)}})
 return A.x($async$Fv,r)},
 ul(){var s=0,r=A.y(t.H),q=1,p=[],o=this,n,m,l,k,j,i
