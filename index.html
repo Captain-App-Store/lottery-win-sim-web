@@ -31,6 +31,31 @@
 
   <title>lws</title>
   <link rel="manifest" href="manifest.json">
+  
+  <!-- Twitter conversion tracking base code -->
+  <script>
+    !function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
+    },s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='https://static.ads-twitter.com/uwt.js',
+    a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+    twq('config','pw1v0');
+  </script>
+  <!-- End Twitter conversion tracking base code -->
+
+  <!-- Twitter purchase conversion event function -->
+  <script>
+    function triggerTwitterPurchaseEvent(email) {
+      if (typeof twq === 'function') {
+        twq('event', 'tw-pw1v0-pw1v1', {
+          email_address: email || null
+        });
+        console.log("Twitter purchase conversion event triggered");
+      } else {
+        console.error("Twitter tracking code not loaded");
+      }
+    }
+  </script>
+  <!-- End Twitter purchase conversion event function -->
+
 </head>
 <body>
   <script src="flutter_bootstrap.js" async></script>
