@@ -41,52 +41,6 @@
   </script>
   <!-- End Twitter conversion tracking base code -->
 
-  <!-- Twitter purchase conversion event functions -->
-  <script>
-    // Function to trigger Twitter purchase conversion event
-    function triggerTwitterPurchaseEvent(email) {
-      if (typeof twq === 'function') {
-        twq('event', 'tw-pw1v0-pw1v1', {
-          email_address: email || null
-        });
-        console.log("Twitter purchase conversion event triggered");
-      } else {
-        console.error("Twitter tracking code not loaded");
-      }
-    }
-    
-    // Function to open URL in a new tab - called from Dart
-    function openUrlInNewTab(url) {
-      window.open(url, '_blank');
-    }
-  </script>
-  <!-- End Twitter purchase conversion event functions -->
-
-  <!-- JavaScript bridge to connect Dart with our functions -->
-  <script>
-    // This will be called when the app is initialized
-    window.addEventListener('flutter-first-frame', function() {
-      // Connect the Dart callTwitterEventJS function to our JS function
-      if (window.flutter_inappwebview) {
-        window.flutter_inappwebview.callHandler('callTwitterEventJS', function() {
-          triggerTwitterPurchaseEvent();
-          return true;
-        });
-      } else {
-        // Standard web approach
-        window.callTwitterEventJS = function() {
-          triggerTwitterPurchaseEvent();
-        };
-        
-        // Connect the URL opener function
-        window.openUrlInNewTab = function(url) {
-          window.open(url, '_blank');
-        };
-      }
-    });
-  </script>
-  <!-- End JavaScript bridge -->
-
 </head>
 <body>
   <script src="flutter_bootstrap.js" async></script>
